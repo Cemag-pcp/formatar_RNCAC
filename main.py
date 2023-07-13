@@ -35,7 +35,8 @@ if file_upload is not None:
     arquivos = excelOriginal['Unnamed: 8'][4]
 
     excelOriginal_cortado = excelOriginal.iloc[5:].reset_index(drop=True)
-    excelOriginal_cortado = excelOriginal_cortado.set_axis(excelOriginal_cortado.iloc[0], axis='columns', inplace=False)
+    # excelOriginal_cortado = excelOriginal_cortado.set_axis(excelOriginal_cortado.iloc[0], axis='columns', inplace=False)
+    excelOriginal_cortado = excelOriginal_cortado.set_axis(excelOriginal_cortado.iloc[0], axis='columns')
     excelOriginal_cortado = excelOriginal_cortado[1:].reset_index(drop=True)
 
     wb = load_workbook('modeloFinal.xlsx')
