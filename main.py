@@ -42,32 +42,32 @@ if file_upload is not None:
     wb = load_workbook('modeloFinal.xlsx')
     ws = wb.active
 
-    ws['B3'] = id
-    ws['B4'] = item
-    ws['B5'] = log_criacao
-    ws['B6'] = origem
-    ws['B7'] = setor
-    ws['B8'] = conjunto
-    ws['B9'] = responsavel
-    ws['B10'] = gravidade
-    ws['B10'].font = font_bold
+    ws['B7'] = id
+    ws['B8'] = item
+    ws['B9'] = log_criacao
+    ws['B10'] = origem
+    ws['B11'] = setor
+    ws['B12'] = conjunto
+    ws['B13'] = responsavel
+    ws['B14'] = gravidade
+    ws['B14'].font = font_bold
 
-    ws['B11'] = prioridade
-    ws['B11'].font = font_bold
+    ws['B15'] = prioridade
+    ws['B15'].font = font_bold
 
-    ws['B12'] = status
-    ws['B12'].font = font_bold
+    ws['B16'] = status
+    ws['B16'].font = font_bold
 
-    ws['A14'] = descricao
-    ws['A16'] = arquivos
-    ws['D41'] = ultima_atualizacao
+    ws['A18'] = descricao
+    ws['A20'] = arquivos
+    ws['D45'] = ultima_atualizacao
 
     excelOriginal_cortado['Prazo'] = pd.to_datetime(excelOriginal_cortado['Prazo'])
     excelOriginal_cortado['Prazo'] = excelOriginal_cortado['Prazo'].dt.strftime('%d-%m-%Y')
     excelOriginal_cortado = excelOriginal_cortado.fillna('')
 
-    ultimaLinha = len(excelOriginal_cortado) + 19 - 2
-    u = 19
+    ultimaLinha = len(excelOriginal_cortado) + 23 - 2
+    u = 23
 
     df_status = excelOriginal_cortado.iloc[:,5:6]
 
