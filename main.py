@@ -33,7 +33,9 @@ if file_upload is not None:
 
     descricao = excelOriginal['Unnamed: 7'][4]
     arquivos = excelOriginal['Unnamed: 8'][4]
-
+    conclusao = excelOriginal['Unnamed: 14'][4]
+    avaliacao = excelOriginal['Unnamed: 13'][4]
+    
     excelOriginal_cortado = excelOriginal.iloc[5:].reset_index(drop=True)
     # excelOriginal_cortado = excelOriginal_cortado.set_axis(excelOriginal_cortado.iloc[0], axis='columns', inplace=False)
     excelOriginal_cortado = excelOriginal_cortado.set_axis(excelOriginal_cortado.iloc[0], axis='columns')
@@ -61,6 +63,9 @@ if file_upload is not None:
     ws['A18'] = descricao
     ws['A20'] = arquivos
     ws['D45'] = ultima_atualizacao
+
+    ws['A42'] = conclusao
+    ws['D44'] = avaliacao
 
     excelOriginal_cortado['Prazo'] = pd.to_datetime(excelOriginal_cortado['Prazo'])
     excelOriginal_cortado['Prazo'] = excelOriginal_cortado['Prazo'].dt.strftime('%d-%m-%Y')
