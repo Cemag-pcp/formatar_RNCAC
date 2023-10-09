@@ -17,7 +17,7 @@ if file_upload is not None:
 
     font_bold = Font(bold=True)
 
-    excelOriginal = pd.read_excel(temp_file)
+    excelOriginal = pd.read_excel(r'C:\Users\pcp2\formatarExcel\RNCAC_1696854249.xlsx')
 
     id = excelOriginal['Unnamed: 2'][4]
     item = excelOriginal['RNCAC'][4]
@@ -60,8 +60,8 @@ if file_upload is not None:
     ws['B16'] = status
     ws['B16'].font = font_bold
 
-    ws['A18'] = descricao
-    ws['A20'] = arquivos
+    ws['A20'] = descricao
+    ws['A18'] = arquivos
     ws['D45'] = ultima_atualizacao
 
     ws['A42'] = conclusao
@@ -74,7 +74,7 @@ if file_upload is not None:
     ultimaLinha = len(excelOriginal_cortado) + 23 - 2
     u = 23
 
-    df_status = excelOriginal_cortado.iloc[:,5:6]
+    df_status = excelOriginal_cortado.iloc[:,6:7]
 
     try:
 
@@ -83,7 +83,7 @@ if file_upload is not None:
                 ws['A' + str(u)] = excelOriginal_cortado['Name'][i]
                 ws['B' + str(u)] = excelOriginal_cortado['Ação Imediata'][i]
                 ws['C' + str(u)] = excelOriginal_cortado['Prazo'][i]
-                ws['D' + str(u)] = excelOriginal_cortado['Pessoas'][i]
+                ws['D' + str(u)] = excelOriginal_cortado['Responsável'][i]
                 ws['E' + str(u)] = df_status['Status'][i]
                 ws['F' + str(u)] = excelOriginal_cortado['Avaliação'][i]
                 u += 1
