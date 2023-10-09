@@ -17,7 +17,7 @@ if file_upload is not None:
 
     font_bold = Font(bold=True)
 
-    excelOriginal = pd.read_excel(r'C:\Users\pcp2\formatarExcel\RNCAC_1696854249.xlsx')
+    excelOriginal = pd.read_excel(temp_file)
 
     id = excelOriginal['Unnamed: 2'][4]
     item = excelOriginal['RNCAC'][4]
