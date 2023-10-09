@@ -29,7 +29,7 @@ if file_upload is not None:
     gravidade = excelOriginal['Unnamed: 10'][4]
     prioridade = excelOriginal['Unnamed: 11'][4]
     status = excelOriginal['Unnamed: 12'][4]
-    ultima_atualizacao = excelOriginal['Unnamed: 17'][4]
+    ultima_atualizacao = excelOriginal['Unnamed: 16'][4]
 
     descricao = excelOriginal['Unnamed: 7'][4]
     arquivos = excelOriginal['Unnamed: 8'][4]
