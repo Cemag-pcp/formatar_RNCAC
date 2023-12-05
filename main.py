@@ -35,24 +35,17 @@ if file_upload is not None:
     responsavel = excelOriginal['Unnamed: 9'][4] #G8 G15
     # gravidade = excelOriginal['Unnamed: 10'][4]
     # prioridade = excelOriginal['Unnamed: 11'][4]
-    # status = excelOriginal['Unnamed: 12'][4] 
+    status = excelOriginal['Unnamed: 15'][4] 
     # ultima_atualizacao = excelOriginal['Unnamed: 16'][4]
+    data = excelOriginal['Unnamed: 12'][4]
 
     descricao = excelOriginal['Unnamed: 7'][4] #A11
     arquivos = excelOriginal['Unnamed: 7'][6]
-    arquivos_split = arquivos.split()
-    foto = arquivos_split[0].replace(",","")
-
-    import requests
-
-    img_data = requests.get(foto).content
-    with open('image_name.jpg', 'wb') as handler:
-        handler.write(img_data)
-
+    # arquivos_split = arquivos.split()
+    # foto = arquivos_split[0].replace(",","")
 
     # conclusao = excelOriginal['Unnamed: 14'][4]
     acao_contencao = excelOriginal['Unnamed: 13'][4] #A17
-
 
     mao_de_obra = excelOriginal['Unnamed: 17'][4] #B25
     materia_prima = excelOriginal['Unnamed: 18'][4] #B26
@@ -85,11 +78,10 @@ if file_upload is not None:
     ws['B27'] = metodo
     ws['B28'] = meio_ambiente
     ws['C29'] = participantes
-
-    # Adiciona a imagem à planilha do Excel
-    excel_img = ExcelImage(img_data)
-    ws.add_image(excel_img, 'A1')
-
+    ws['G6'] = status
+    ws['I7'] = data
+    ws['I13'] = data
+    
     # ws['B14'].font = font_bold
 
     # ws['B15'] = prioridade
@@ -121,6 +113,7 @@ if file_upload is not None:
                 ws['A' + str(u)] = excelOriginal_cortado['Name'][i]
                 ws['F' + str(u)] = excelOriginal_cortado['Previsão'][i]
                 ws['E' + str(u)] = excelOriginal_cortado['Responsável'][i]
+                ws['H' + str(u)] = excelOriginal_cortado['Conclusão'][i]
                 u += 1
     except:
         pass
@@ -135,10 +128,6 @@ if file_upload is not None:
         file_name=temp_file,
         mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     )
-
-    # Remove o arquivo temporário
-    import os
-    os.remove(img_path)
     
     # Exibe o botão de download
     st.write(download_button)

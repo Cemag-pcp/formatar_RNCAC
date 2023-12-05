@@ -6,7 +6,7 @@
   <meta name="description" content="monday.com is a work OS that powers teams to run processes, projects and workflows in one digital workspace">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=2.0">
   <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="eCdD2UsCLPNQ+SgeZsVmBQo3wTQC+2Z9rK0xr+wiHWU=" />
+<meta name="csrf-token" content="VD7CpPT0t5mC7wH9beZ6cpqOD4dIGqMjTrRBba92/uQ=" />
   <link rel="apple-touch-icon" sizes="57x57" href="https://cdn.monday.com/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="https://cdn.monday.com/apple-touch-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="https://cdn.monday.com/apple-touch-icon-72x72.png">
@@ -85,16 +85,16 @@ body#main.vibe_primary_background_hover_opacity_color_change.default-app-theme {
 <script>
   window.webpack_init_time = window.webpack_init_time || (new Date().getTime())
   window.bundles_urls = window.bundles_urls || {};
-  window.bundles_urls["bigbrain_tracker"] = "https://cdn.monday.com/build/bigbrain_tracker-8b45a9996618bd2ad552.js";
+  window.bundles_urls["bigbrain_tracker"] = "https://cdn.monday.com/build/bigbrain_tracker-e901f78bee16e57cb45e.js";
 </script>
-    <script src="https://cdn.monday.com/build/bigbrain_tracker-8b45a9996618bd2ad552.js" type="text/javascript"  ></script>
+    <script src="https://cdn.monday.com/build/bigbrain_tracker-e901f78bee16e57cb45e.js" type="text/javascript"  ></script>
 
 
 
 
         <link rel="stylesheet" media="all" href="https://cdn.monday.com/build/login_monday-33edc93d5acf81a5ce60.css" />
 
-  <script src="https://cdn.monday.com/get_translations.js?locale=en&project=platform&timestamp=1699946034" type="text/javascript"></script>
+  <script src="https://cdn.monday.com/get_translations.js?locale=en&project=platform&timestamp=1700728134" type="text/javascript"></script>
 </head>
 <body id="login-monday-body" class="login-monday-body">
   <script>
@@ -115,9 +115,9 @@ window.VulcanInitData = {
 <script>
   window.webpack_init_time = window.webpack_init_time || (new Date().getTime())
   window.bundles_urls = window.bundles_urls || {};
-  window.bundles_urls["babel_polyfill_and_helpers"] = "https://cdn.monday.com/build/babel_polyfill_and_helpers-e387d8a36896079c3242.js";
+  window.bundles_urls["babel_polyfill_and_helpers"] = "https://cdn.monday.com/build/babel_polyfill_and_helpers-69f93c1dc729ea56e3d3.js";
 </script>
-    <script src="https://cdn.monday.com/build/babel_polyfill_and_helpers-e387d8a36896079c3242.js" type="text/javascript"  ></script>
+    <script src="https://cdn.monday.com/build/babel_polyfill_and_helpers-69f93c1dc729ea56e3d3.js" type="text/javascript"  ></script>
 
 
   
@@ -155,7 +155,7 @@ window.VulcanInitData = {
   window.Pulse.currentUser = {"email":""}
   window.Pulse.recaptchaSiteKey = "6Leb9d0aAAAAAHJoQhpXiopyYuaSdXArxRToyn0p"
   window.Pulse.shouldShowRecaptcha = false
-  window.Pulse.formAuthenticityToken = "eCdD2UsCLPNQ+SgeZsVmBQo3wTQC+2Z9rK0xr+wiHWU="
+  window.Pulse.formAuthenticityToken = "VD7CpPT0t5mC7wH9beZ6cpqOD4dIGqMjTrRBba92/uQ="
   window.Pulse.shouldShowOauth2Option = true
   window.Pulse.with_login_ms = true
   window.Pulse.shouldDisableLoginWithBrowser = false
@@ -169,11 +169,11 @@ window.VulcanInitData = {
     <script>
   window.webpack_init_time = window.webpack_init_time || (new Date().getTime())
   window.bundles_urls = window.bundles_urls || {};
-  window.bundles_urls["login_monday"] = "https://cdn.monday.com/build/login_monday-65c2f4cba98b03e3704a.js";
+  window.bundles_urls["login_monday"] = "https://cdn.monday.com/build/login_monday-233aa9d1b529dc10d261.js";
 </script>
-    <script src="https://cdn.monday.com/build/login_monday-65c2f4cba98b03e3704a.js" type="text/javascript"  ></script>
+    <script src="https://cdn.monday.com/build/login_monday-233aa9d1b529dc10d261.js" type="text/javascript"  ></script>
 
 
-<script>(function(){var js = "window['__CF$cv$params']={r:'825fb28d6b2500cd',t:'MTY5OTk2OTU1My42OTgwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"825fb28d6b2500cd","b":1,"version":"2023.10.0","token":"ef3b38c2289c47fa9034fc63ed8ed581"}' crossorigin="anonymous"></script>
+<script>(function(){var js = "window['__CF$cv$params']={r:'82ab041cdd692745',t:'MTcwMDc1OTMyNi43MjEwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"82ab041cdd692745","b":1,"version":"2023.10.0","token":"ef3b38c2289c47fa9034fc63ed8ed581"}' crossorigin="anonymous"></script>
 </body>
 </html>
