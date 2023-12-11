@@ -39,6 +39,9 @@ if file_upload is not None:
     # ultima_atualizacao = excelOriginal['Unnamed: 16'][4]
     data = excelOriginal['Unnamed: 12'][4]
 
+    print(data) 
+    print(type(data))
+
     descricao = excelOriginal['Unnamed: 7'][4] #A11
     arquivos = excelOriginal['Unnamed: 7'][6]
     # arquivos_split = arquivos.split()
@@ -47,13 +50,16 @@ if file_upload is not None:
     # conclusao = excelOriginal['Unnamed: 14'][4]
     acao_contencao = excelOriginal['Unnamed: 13'][4] #A17
 
+    maquina = excelOriginal['Unnamed: 16'][4]
     mao_de_obra = excelOriginal['Unnamed: 17'][4] #B25
     materia_prima = excelOriginal['Unnamed: 18'][4] #B26
     medicao = excelOriginal['Unnamed: 19'][4] #B27
     metodo = excelOriginal['Unnamed: 20'][4] #B28
     meio_ambiente = excelOriginal['Unnamed: 21'][4] #B29
-
+    encerradoEm = excelOriginal['Unnamed: 26'][4]
+    responsavelUltimo = excelOriginal['Unnamed: 27'][4]
     participantes = excelOriginal['Unnamed: 23'][4] #C30
+    dataPenultima = excelOriginal['Unnamed: 22'][4]
 
     excelOriginal_cortado = excelOriginal.iloc[5:].reset_index(drop=True)
     # excelOriginal_cortado = excelOriginal_cortado.set_axis(excelOriginal_cortado.iloc[0], axis='columns', inplace=False)
@@ -66,12 +72,15 @@ if file_upload is not None:
     wb = load_workbook('modelo_final_v2.xlsx')
     ws = wb.active
 
+    print(encerradoEm)
+    
     ws['B7'] = id
     ws['D7'] = setor
     ws['G8'] = responsavel
     ws['G14'] = responsavel
     ws['A10'] = descricao
     ws['A16'] = acao_contencao
+    ws['B23'] = maquina
     ws['B24'] = mao_de_obra
     ws['B25'] = materia_prima
     ws['B26'] = medicao
@@ -79,8 +88,16 @@ if file_upload is not None:
     ws['B28'] = meio_ambiente
     ws['C29'] = participantes
     ws['G6'] = status
-    ws['I7'] = data
-    ws['I13'] = data
+    ws['I7'] = data.strftime('%d/%m/%Y')
+    ws['I13'] = data.strftime('%d/%m/%Y')
+    if encerradoEm != '':
+        ws['I45'] = encerradoEm.strftime('%d/%m/%Y')
+    else:
+        ws['I45'] = ''
+    
+    ws['G46'] = responsavelUltimo
+    ws['G21'] = dataPenultima
+    
     
     # ws['B14'].font = font_bold
 
@@ -98,7 +115,8 @@ if file_upload is not None:
     # ws['D44'] = avaliacao
 
     excelOriginal_cortado['Previsão'] = pd.to_datetime(excelOriginal_cortado['Previsão'])
-    excelOriginal_cortado['Previsão'] = excelOriginal_cortado['Previsão'].dt.strftime('%d-%m-%Y')
+    excelOriginal_cortado['Previsão'] = excelOriginal_cortado['Previsão'].dt.strftime('%d/%m/%Y')
+    excelOriginal_cortado['Previsão'] = excelOriginal_cortado['Previsão'].str.replace("-","/")
     excelOriginal_cortado = excelOriginal_cortado.fillna('')
 
     u = 34
@@ -111,9 +129,10 @@ if file_upload is not None:
         while u < ultimaLinha:
             for i in range(len(excelOriginal_cortado)):
                 ws['A' + str(u)] = excelOriginal_cortado['Name'][i]
-                ws['F' + str(u)] = excelOriginal_cortado['Previsão'][i]
+                ws['H' + str(u)] = excelOriginal_cortado['Previsão'][i]
                 ws['E' + str(u)] = excelOriginal_cortado['Responsável'][i]
-                ws['H' + str(u)] = excelOriginal_cortado['Conclusão'][i]
+                ws['F' + str(u)] = excelOriginal_cortado['Executor'][i]
+                ws['I' + str(u)] = excelOriginal_cortado['Conclusão'][i]
                 u += 1
     except:
         pass
