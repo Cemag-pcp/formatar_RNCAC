@@ -90,13 +90,19 @@ if file_upload is not None:
     ws['G6'] = status
     ws['I7'] = data.strftime('%d/%m/%Y')
     ws['I13'] = data.strftime('%d/%m/%Y')
+    
+    print(encerradoEm)
+    
     if encerradoEm != '':
-        ws['I45'] = encerradoEm.strftime('%d/%m/%Y')
+        try:
+            ws['I45'] = encerradoEm.strftime('%d/%m/%Y')
+        except:
+            ws['I45'] = ''
     else:
         ws['I45'] = ''
     
     ws['G46'] = responsavelUltimo
-    ws['G21'] = dataPenultima
+    ws['G21'] = dataPenultima.strftime('%d/%m/%Y')
     
     
     # ws['B14'].font = font_bold
