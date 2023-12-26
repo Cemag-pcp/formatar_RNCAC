@@ -40,7 +40,12 @@ if file_upload is not None:
     data = excelOriginal['Unnamed: 12'][4]
 
     descricao = excelOriginal['Unnamed: 7'][4] #A11
-    arquivos = excelOriginal['Unnamed: 7'][6]
+    
+    try:
+        arquivos = excelOriginal['Unnamed: 7'][6]
+    except:
+        arquivos = ''
+
     # arquivos_split = arquivos.split()
     # foto = arquivos_split[0].replace(",","")
 
@@ -129,11 +134,14 @@ if file_upload is not None:
     # ws['A42'] = conclusao
     # ws['D44'] = avaliacao
 
-    excelOriginal_cortado['Previsão'] = pd.to_datetime(excelOriginal_cortado['Previsão'], errors='ignore')
-    excelOriginal_cortado['Previsão'] = excelOriginal_cortado['Previsão'].dt.strftime('%d/%m/%Y')
-    excelOriginal_cortado['Previsão'] = excelOriginal_cortado['Previsão'].str.replace("-","/")
-    excelOriginal_cortado = excelOriginal_cortado.fillna('')
-
+    try:
+        excelOriginal_cortado['Previsão'] = pd.to_datetime(excelOriginal_cortado['Previsão'], errors='ignore')
+        excelOriginal_cortado['Previsão'] = excelOriginal_cortado['Previsão'].dt.strftime('%d/%m/%Y')
+        excelOriginal_cortado['Previsão'] = excelOriginal_cortado['Previsão'].str.replace("-","/")
+        excelOriginal_cortado = excelOriginal_cortado.fillna('')
+    except:
+        excelOriginal['Previsão'] = ''
+        
     u = 34
     ultimaLinha = len(excelOriginal_cortado) + u-1
 
