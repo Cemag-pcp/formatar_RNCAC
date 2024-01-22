@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from openpyxl.styles import Font
 from openpyxl import load_workbook
-from openpyxl.writer.excel import save_virtual_workbook
+# from openpyxl.writer.excel import save_virtual_workbook
 import numpy as np
 import requests
 from PIL import Image
