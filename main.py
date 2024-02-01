@@ -85,39 +85,39 @@ if file_upload is not None:
     wb = load_workbook('modelo_final_v2.xlsx')
     ws = wb.active
     
-    ws['B7'] = id
-    ws['D7'] = setor
-    ws['G8'] = responsavel
-    ws['G14'] = responsavel
-    ws['A10'] = descricao
-    ws['A16'] = acao_contencao
-    ws['B23'] = maquina
-    ws['B24'] = mao_de_obra
-    ws['B25'] = materia_prima
-    ws['B26'] = medicao
-    ws['B27'] = metodo
-    ws['B28'] = meio_ambiente
-    ws['C29'] = participantes
-    ws['G6'] = status
-    ws['G7'] = data.strftime('%d/%m/%Y')
-    ws['G13'] = data.strftime('%d/%m/%Y')
-    ws['A50'] = conclusao
-    ws['A48'] = acao_eficaz
+    ws['B8'] = id
+    ws['D8'] = setor
+    ws['G9'] = responsavel
+    ws['G15'] = responsavel
+    ws['A11'] = descricao
+    ws['A17'] = acao_contencao
+    ws['B24'] = maquina
+    ws['B25'] = mao_de_obra
+    ws['B26'] = materia_prima
+    ws['B27'] = medicao
+    ws['B28'] = metodo
+    ws['B29'] = meio_ambiente
+    ws['C30'] = participantes
+    ws['G7'] = status
+    ws['G8'] = data.strftime('%d/%m/%Y')
+    ws['G14'] = data.strftime('%d/%m/%Y')
+    ws['A51'] = conclusao
+    ws['A49'] = acao_eficaz
 
     if encerradoEm != '':
         try:
-            ws['G45'] = encerradoEm.strftime('%d/%m/%Y')
+            ws['G46'] = encerradoEm.strftime('%d/%m/%Y')
         except:
-            ws['G45'] = ''
+            ws['G46'] = ''
     else:
-        ws['G45'] = ''
+        ws['G46'] = ''
     
-    ws['G46'] = responsavelUltimo
+    ws['G47'] = responsavelUltimo
 
     try:
-        ws['G21'] = dataPenultima.strftime('%d/%m/%Y')
+        ws['G22'] = dataPenultima.strftime('%d/%m/%Y')
     except:
-        ws['G21'] = ''
+        ws['G22'] = ''
     
     # ws['B14'].font = font_bold
 
@@ -142,7 +142,7 @@ if file_upload is not None:
     except:
         excelOriginal['Previsão'] = ''
         
-    u = 34
+    u = 35
     ultimaLinha = len(excelOriginal_cortado) + u-1
 
     df_status = excelOriginal_cortado.iloc[:,5:6]
