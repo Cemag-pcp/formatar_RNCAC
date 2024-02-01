@@ -25,24 +25,25 @@ if file_upload is not None:
     font_bold = Font(bold=True)
 
     excelOriginal = pd.read_excel(temp_file)
-
+    # temp_file = r"RNC_1706789367.xlsx"
+    
     id = excelOriginal['Unnamed: 2'][4] #B7
     # item = excelOriginal['RNCAC'][4] 
     # log_criacao = excelOriginal['Unnamed: 3'][4]
     # origem = excelOriginal['Unnamed: 4'][4]
-    setor = excelOriginal['Unnamed: 5'][4] #D7
+    setor = excelOriginal['Unnamed: 10'][4] #D7
     # conjunto = excelOriginal['Unnamed: 6'][4] 
-    responsavel = excelOriginal['Unnamed: 9'][4] #G8 G15
+    responsavel = excelOriginal['Unnamed: 11'][4] #G8 G15
     # gravidade = excelOriginal['Unnamed: 10'][4]
     # prioridade = excelOriginal['Unnamed: 11'][4]
-    status = excelOriginal['Unnamed: 15'][4] 
+    status = excelOriginal['Unnamed: 8'][4] 
     # ultima_atualizacao = excelOriginal['Unnamed: 16'][4]
-    data = excelOriginal['Unnamed: 12'][4]
+    data = excelOriginal['Unnamed: 6'][4].strftime(format="%d/%m/%Y")
 
-    descricao = excelOriginal['Unnamed: 7'][4] #A11
+    descricao = excelOriginal['RNC'][4] #A11
     
     try:
-        arquivos = excelOriginal['Unnamed: 7'][6]
+        arquivos = excelOriginal['Unnamed: 8'][6]
     except:
         arquivos = ''
 
@@ -50,28 +51,33 @@ if file_upload is not None:
     # foto = arquivos_split[0].replace(",","")
 
     # conclusao = excelOriginal['Unnamed: 14'][4]
-    acao_contencao = excelOriginal['Unnamed: 13'][4] #A17
+    acao_contencao = excelOriginal['Unnamed: 15'][4] #A17
 
-    excelOriginal['Unnamed: 16'] = excelOriginal['Unnamed: 16'].fillna('N/A')
-    excelOriginal['Unnamed: 17'] = excelOriginal['Unnamed: 17'].fillna('N/A')
-    excelOriginal['Unnamed: 18'] = excelOriginal['Unnamed: 18'].fillna('N/A')
     excelOriginal['Unnamed: 19'] = excelOriginal['Unnamed: 19'].fillna('N/A')
     excelOriginal['Unnamed: 20'] = excelOriginal['Unnamed: 20'].fillna('N/A')
     excelOriginal['Unnamed: 21'] = excelOriginal['Unnamed: 21'].fillna('N/A')
+    excelOriginal['Unnamed: 22'] = excelOriginal['Unnamed: 22'].fillna('N/A')
+    excelOriginal['Unnamed: 23'] = excelOriginal['Unnamed: 23'].fillna('N/A')
+    excelOriginal['Unnamed: 24'] = excelOriginal['Unnamed: 24'].fillna('N/A')
 
-    maquina = excelOriginal['Unnamed: 16'][4]
-    mao_de_obra = excelOriginal['Unnamed: 17'][4] #B25
-    materia_prima = excelOriginal['Unnamed: 18'][4] #B26
-    medicao = excelOriginal['Unnamed: 19'][4] #B27
-    metodo = excelOriginal['Unnamed: 20'][4] #B28
-    meio_ambiente = excelOriginal['Unnamed: 21'][4] #B29
-    encerradoEm = excelOriginal['Unnamed: 26'][4]
-    responsavelUltimo = excelOriginal['Unnamed: 27'][4]
-    participantes = excelOriginal['Unnamed: 23'][4] #C30
-    dataPenultima = excelOriginal['Unnamed: 22'][4]
-    conclusao = excelOriginal['Unnamed: 25'][4]
+    maquina = excelOriginal['Unnamed: 19'][4]
+    mao_de_obra = excelOriginal['Unnamed: 20'][4] #B25
+    materia_prima = excelOriginal['Unnamed: 21'][4] #B26
+    medicao = excelOriginal['Unnamed: 22'][4] #B27
+    metodo = excelOriginal['Unnamed: 23'][4] #B28
+    meio_ambiente = excelOriginal['Unnamed: 24'][4] #B29
+    encerradoEm = excelOriginal['Unnamed: 25'][4].strftime("%d/%m/%Y")
+    responsavelUltimo = excelOriginal['Unnamed: 30'][4]
+    participantes = excelOriginal['Unnamed: 26'][4] #C30
+    dataPenultima = excelOriginal['Unnamed: 29'][4].strftime("%d/%m/%Y")
+    conclusao = excelOriginal['Unnamed: 28'][4]
+    item_norma = excelOriginal['Unnamed: 12'][4]
+    avaliacao = excelOriginal['Unnamed: 27'][4]
+    status2 = excelOriginal['Unnamed: 17'][4]
+    data2 = excelOriginal['Unnamed: 18'][4].strftime("%d/%m/%Y")
+    responsavel2 = excelOriginal['Unnamed: 16'][4]
+    conjuntoAtividade = excelOriginal['Unnamed: 13'].fillna('N/A')[4]
     
-    avaliacao = excelOriginal['Unnamed: 24'][4]
     if avaliacao == 5:
         acao_eficaz = 'Sim'
     else:
@@ -87,9 +93,9 @@ if file_upload is not None:
     
     ws['B8'] = id
     ws['D8'] = setor
-    ws['G9'] = responsavel
-    ws['G15'] = responsavel
-    ws['A11'] = descricao
+    ws['G8'] = responsavel
+    ws['G15'] = responsavel2
+    ws['A12'] = descricao
     ws['A17'] = acao_contencao
     ws['B24'] = maquina
     ws['B25'] = mao_de_obra
@@ -99,14 +105,18 @@ if file_upload is not None:
     ws['B29'] = meio_ambiente
     ws['C30'] = participantes
     ws['G7'] = status
-    ws['G8'] = data.strftime('%d/%m/%Y')
-    ws['G14'] = data.strftime('%d/%m/%Y')
+    ws['I8'] = data
+    ws['I14'] = data2
     ws['A51'] = conclusao
     ws['A49'] = acao_eficaz
+    ws['G9'] = item_norma
+    ws['G14'] = status2
+    ws['G11'] = conjuntoAtividade
+    ws['G22'] = responsavel2
 
     if encerradoEm != '':
         try:
-            ws['G46'] = encerradoEm.strftime('%d/%m/%Y')
+            ws['G46'] = encerradoEm
         except:
             ws['G46'] = ''
     else:
@@ -115,9 +125,9 @@ if file_upload is not None:
     ws['G47'] = responsavelUltimo
 
     try:
-        ws['G22'] = dataPenultima.strftime('%d/%m/%Y')
+        ws['i22'] = dataPenultima
     except:
-        ws['G22'] = ''
+        ws['i22'] = ''
     
     # ws['B14'].font = font_bold
 
@@ -154,10 +164,9 @@ if file_upload is not None:
         while u < ultimaLinha:
             for i in range(len(excelOriginal_cortado)):
                 ws['A' + str(u)] = excelOriginal_cortado['Name'][i]
-                ws['H' + str(u)] = excelOriginal_cortado['Previsão'][i]
+                ws['F' + str(u)] = excelOriginal_cortado['Previsão - End'][i].strftime("%d/%m/%Y")
                 ws['E' + str(u)] = excelOriginal_cortado['Responsável'][i]
-                ws['F' + str(u)] = excelOriginal_cortado['Executor'][i]
-                ws['I' + str(u)] = excelOriginal_cortado['Conclusão'][i]
+                ws['H' + str(u)] = excelOriginal_cortado['Conclusão'][i].strftime("%d/%m/%Y")
                 u += 1
     except:
         pass
