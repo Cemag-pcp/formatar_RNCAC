@@ -69,7 +69,7 @@ if file_upload is not None:
     encerradoEm = excelOriginal['Unnamed: 25'][4].strftime("%d/%m/%Y")
     responsavelUltimo = excelOriginal['Unnamed: 30'][4]
     participantes = excelOriginal['Unnamed: 26'][4] #C30
-    dataPenultima = excelOriginal['Unnamed: 29'][4].strftime("%d/%m/%Y")
+    dataPenultima = excelOriginal['Unnamed: 29'][4]
     conclusao = excelOriginal['Unnamed: 28'][4]
     item_norma = excelOriginal['Unnamed: 12'][4]
     avaliacao = excelOriginal['Unnamed: 27'][4]
