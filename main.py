@@ -17,7 +17,7 @@ file_upload = st.file_uploader("Anexe o arquivo original baixado do monday", typ
 if file_upload is not None:
     # Salva o arquivo temporário
     temp_file = 'arquivo_formatado.xlsx'
-    # temp_file = r"C:\Users\pcp2\Downloads\RNCAC_CQ_1698677290 (3).xlsx"
+    # temp_file = r"C:\Users\pcp2\Downloads\RNC_1706811504.xlsx"
 
     with open(temp_file, 'wb') as file:
         file.write(file_upload.getvalue())
@@ -66,22 +66,25 @@ if file_upload is not None:
     medicao = excelOriginal['Unnamed: 22'][4] #B27
     metodo = excelOriginal['Unnamed: 23'][4] #B28
     meio_ambiente = excelOriginal['Unnamed: 24'][4] #B29
-    encerradoEm = excelOriginal['Unnamed: 25'][4].strftime("%d/%m/%Y")
+    # encerradoEm = excelOriginal['Unnamed: 25'][4].strftime("%d/%m/%Y")
     responsavelUltimo = excelOriginal['Unnamed: 30'][4]
     participantes = excelOriginal['Unnamed: 26'][4] #C30
-    dataPenultima = excelOriginal['Unnamed: 29'][4]
+    encerradoEm = excelOriginal['Unnamed: 29'][4]
     conclusao = excelOriginal['Unnamed: 28'][4]
     item_norma = excelOriginal['Unnamed: 12'][4]
     avaliacao = excelOriginal['Unnamed: 27'][4]
     status2 = excelOriginal['Unnamed: 17'][4]
     data2 = excelOriginal['Unnamed: 18'][4].strftime("%d/%m/%Y")
+    data3etapa = excelOriginal['Unnamed: 25'][4].strftime("%d/%m/%Y")
     responsavel2 = excelOriginal['Unnamed: 16'][4]
     conjuntoAtividade = excelOriginal['Unnamed: 13'].fillna('N/A')[4]
-    
-    if avaliacao == 5:
-        acao_eficaz = 'Sim'
+
+    if not np.isnan(avaliacao):
+        acao_eficaz = avaliacao * '★'
+        acao_eficaz_2 = 'Sim'
     else:
-        acao_eficaz = 'Não'
+        acao_eficaz = ''
+        acao_eficaz_2 = 'Não'
 
     excelOriginal_cortado = excelOriginal.iloc[5:].reset_index(drop=True)
     # excelOriginal_cortado = excelOriginal_cortado.set_axis(excelOriginal_cortado.iloc[0], axis='columns', inplace=False)
@@ -107,12 +110,15 @@ if file_upload is not None:
     ws['G7'] = status
     ws['I8'] = data
     ws['I14'] = data2
+    ws['I22'] = data3etapa
     ws['A51'] = conclusao
-    ws['A49'] = acao_eficaz
+    ws['E46'] = acao_eficaz
+    ws['A49'] = acao_eficaz_2
     ws['G9'] = item_norma
     ws['G14'] = status2
     ws['G11'] = conjuntoAtividade
     ws['G22'] = responsavel2
+
 
     if encerradoEm != '':
         try:
@@ -124,10 +130,10 @@ if file_upload is not None:
     
     ws['G47'] = responsavelUltimo
 
-    try:
-        ws['i22'] = dataPenultima
-    except:
-        ws['i22'] = ''
+    # try:
+    #     ws['i22'] = dataPenultima
+    # except:
+    #     ws['i22'] = ''
     
     # ws['B14'].font = font_bold
 
