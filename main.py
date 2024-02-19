@@ -9,15 +9,21 @@ from PIL import Image
 from io import BytesIO, StringIO
 from openpyxl import Workbook
 from openpyxl.drawing.image import Image as ExcelImage
+from datetime import datetime
 
 st.title("Formatar arquivos RNCAC")
 
 file_upload = st.file_uploader("Anexe o arquivo original baixado do monday", type='xlsx')
 
+def is_invalid_date(date):
+    # Define uma data sentinela que representa uma data indefinida
+    sentinel_date = datetime(1900, 1, 1)
+    return date == sentinel_date
+
 if file_upload is not None:
     # Salva o arquivo temporário
     temp_file = 'arquivo_formatado.xlsx'
-    # temp_file = r"C:\Users\pcp2\Downloads\RNC_1706811504.xlsx"
+    # temp_file = r"C:\Users\pcp2\Downloads\RNC_1708109308.xlsx"
 
     with open(temp_file, 'wb') as file:
         file.write(file_upload.getvalue())
@@ -38,7 +44,12 @@ if file_upload is not None:
     # prioridade = excelOriginal['Unnamed: 11'][4]
     status = excelOriginal['Unnamed: 8'][4] 
     # ultima_atualizacao = excelOriginal['Unnamed: 16'][4]
-    data = excelOriginal['Unnamed: 6'][4].strftime(format="%d/%m/%Y")
+    
+    data = excelOriginal['Unnamed: 6'][4]    
+    if not isinstance(data, datetime):
+        data = ''
+    else:
+        data = data.strftime('%d/%m/%Y')
 
     descricao = excelOriginal['RNC'][4] #A11
     
@@ -69,13 +80,30 @@ if file_upload is not None:
     # encerradoEm = excelOriginal['Unnamed: 25'][4].strftime("%d/%m/%Y")
     responsavelUltimo = excelOriginal['Unnamed: 30'][4]
     participantes = excelOriginal['Unnamed: 26'][4] #C30
+
     encerradoEm = excelOriginal['Unnamed: 29'][4]
+    if not isinstance(encerradoEm, datetime):
+        encerradoEm = ''
+    else:
+        encerradoEm = encerradoEm.strftime('%d/%m/%Y')  
+
     conclusao = excelOriginal['Unnamed: 28'][4]
     item_norma = excelOriginal['Unnamed: 12'][4]
     avaliacao = excelOriginal['Unnamed: 27'][4]
     status2 = excelOriginal['Unnamed: 17'][4]
-    data2 = excelOriginal['Unnamed: 18'][4].strftime("%d/%m/%Y")
-    data3etapa = excelOriginal['Unnamed: 25'][4].strftime("%d/%m/%Y")
+
+    data2 = excelOriginal['Unnamed: 18'][4]
+    if not isinstance(data2, datetime):
+        data2 = ''
+    else:
+        data2 = data2.strftime('%d/%m/%Y')  
+
+    data3etapa = excelOriginal['Unnamed: 25'][4]
+    if not isinstance(data3etapa, datetime):
+        data3etapa = ''
+    else:
+        data3etapa = data3etapa.strftime('%d/%m/%Y')  
+
     responsavel2 = excelOriginal['Unnamed: 16'][4]
     conjuntoAtividade = excelOriginal['Unnamed: 13'].fillna('N/A')[4]
 
@@ -118,16 +146,7 @@ if file_upload is not None:
     ws['G14'] = status2
     ws['G11'] = conjuntoAtividade
     ws['G22'] = responsavel2
-
-
-    if encerradoEm != '':
-        try:
-            ws['G46'] = encerradoEm
-        except:
-            ws['G46'] = ''
-    else:
-        ws['G46'] = ''
-    
+    ws['G46'] = encerradoEm
     ws['G47'] = responsavelUltimo
 
     # try:
