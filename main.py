@@ -23,7 +23,7 @@ def is_invalid_date(date):
 if file_upload is not None:
     # Salva o arquivo temporário
     temp_file = 'arquivo_formatado.xlsx'
-    # temp_file = r"C:\Users\pcp2\Downloads\RNC_1708109308.xlsx"
+    # temp_file = r"C:\Users\TI DEV\formatar_rncac\formatar_RNCAC\RNC_1708107707.xlsx"
 
     with open(temp_file, 'wb') as file:
         file.write(file_upload.getvalue())
@@ -176,6 +176,22 @@ if file_upload is not None:
         excelOriginal_cortado = excelOriginal_cortado.fillna('')
     except:
         excelOriginal['Previsão'] = ''
+    
+    try:
+        excelOriginal_cortado['Conclusão'] = pd.to_datetime(excelOriginal_cortado['Conclusão'], errors='ignore')
+        excelOriginal_cortado['Conclusão'] = excelOriginal_cortado['Conclusão'].dt.strftime('%d/%m/%Y')
+        excelOriginal_cortado['Conclusão'] = excelOriginal_cortado['Conclusão'].str.replace("-","/")
+        excelOriginal_cortado = excelOriginal_cortado.fillna('')
+    except:
+        excelOriginal['Conclusão'] = ''
+
+    try:
+        excelOriginal_cortado['Previsão - End'] = pd.to_datetime(excelOriginal_cortado['Previsão - End'], errors='ignore')
+        excelOriginal_cortado['Previsão - End'] = excelOriginal_cortado['Previsão - End'].dt.strftime('%d/%m/%Y')
+        excelOriginal_cortado['Previsão - End'] = excelOriginal_cortado['Previsão - End'].str.replace("-","/")
+        excelOriginal_cortado = excelOriginal_cortado.fillna('')
+    except:
+        excelOriginal['Previsão - End'] = ''
         
     u = 35
     ultimaLinha = len(excelOriginal_cortado) + u-1
@@ -184,17 +200,23 @@ if file_upload is not None:
 
     # excelOriginal_cortado = excelOriginal_cortado.fillna('N/A')
 
-    try:
+    print(excelOriginal_cortado)
+    excelOriginal_cortado = excelOriginal_cortado.fillna('')
 
-        while u < ultimaLinha:
-            for i in range(len(excelOriginal_cortado)):
-                ws['A' + str(u)] = excelOriginal_cortado['Name'][i]
-                ws['F' + str(u)] = excelOriginal_cortado['Previsão - End'][i].strftime("%d/%m/%Y")
-                ws['E' + str(u)] = excelOriginal_cortado['Responsável'][i]
-                ws['H' + str(u)] = excelOriginal_cortado['Conclusão'][i].strftime("%d/%m/%Y")
-                u += 1
-    except:
-        pass
+    print(excelOriginal_cortado['Previsão - End'])
+    print(excelOriginal_cortado['Conclusão'])
+
+    # try:
+
+        #while u < ultimaLinha:
+    for i in range(0,len(excelOriginal_cortado)-1):
+        ws['A' + str(u)] = excelOriginal_cortado['Name'][i]
+        ws['F' + str(u)] = excelOriginal_cortado['Previsão - End'][i]
+        ws['E' + str(u)] = excelOriginal_cortado['Responsável'][i]
+        ws['H' + str(u)] = excelOriginal_cortado['Conclusão'][i]
+        u += 1
+    # except:
+    #     pass
 
     wb.template = False
     wb.save(temp_file)
