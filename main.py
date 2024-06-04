@@ -23,7 +23,7 @@ def is_invalid_date(date):
 if file_upload is not None:
     # Salva o arquivo temporário
     temp_file = 'arquivo_formatado.xlsx'
-    # temp_file = r"C:\Users\TI DEV\formatar_rncac\formatar_RNCAC\RNC_1708107707.xlsx"
+    # temp_file = r"C:\Users\TI DEV\formatar_rncac\formatar_RNCAC\RNC_1717506883.xlsx"
 
     with open(temp_file, 'wb') as file:
         file.write(file_upload.getvalue())
@@ -200,11 +200,7 @@ if file_upload is not None:
 
     # excelOriginal_cortado = excelOriginal_cortado.fillna('N/A')
 
-    print(excelOriginal_cortado)
     excelOriginal_cortado = excelOriginal_cortado.fillna('')
-
-    print(excelOriginal_cortado['Previsão - End'])
-    print(excelOriginal_cortado['Conclusão'])
 
     # try:
 
