@@ -23,7 +23,7 @@ def is_invalid_date(date):
 if file_upload is not None:
     # Salva o arquivo temporário
     temp_file = 'arquivo_formatado.xlsx'
-    # temp_file = r"C:\Users\TI DEV\formatar_rncac\formatar_RNCAC\RNC_1717506883.xlsx"
+    # temp_file = r"PAINEL_DE_ACOMPANHAMENTO_RNC_1722513838.xlsx"
 
     with open(temp_file, 'wb') as file:
         file.write(file_upload.getvalue())
@@ -51,10 +51,10 @@ if file_upload is not None:
     else:
         data = data.strftime('%d/%m/%Y')
 
-    descricao = excelOriginal['RNC'][4] #A11
+    descricao = excelOriginal['PAINEL DE ACOMPANHAMENTO RNC'][4] #A11
     
     try:
-        arquivos = excelOriginal['Unnamed: 8'][6]
+        arquivos = excelOriginal['Unnamed: 14'][4]
     except:
         arquivos = ''
 
