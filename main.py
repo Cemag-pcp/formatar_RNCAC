@@ -139,15 +139,15 @@ if file_upload is not None:
     ws['I8'] = data
     ws['I14'] = data2
     ws['I22'] = data3etapa
-    ws['A51'] = conclusao
-    ws['E46'] = acao_eficaz
-    ws['A49'] = acao_eficaz_2
+    ws['A54'] = conclusao
+    ws['E50'] = acao_eficaz
+    ws['A53'] = acao_eficaz_2
     ws['G9'] = item_norma
     ws['G14'] = status2
     ws['G11'] = conjuntoAtividade
     ws['G22'] = responsavel2
-    ws['G46'] = encerradoEm
-    ws['G47'] = responsavelUltimo
+    ws['G50'] = encerradoEm
+    ws['G51'] = responsavelUltimo
 
     # try:
     #     ws['i22'] = dataPenultima
