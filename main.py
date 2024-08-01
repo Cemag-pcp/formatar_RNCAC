@@ -139,7 +139,7 @@ if file_upload is not None:
     ws['I8'] = data
     ws['I14'] = data2
     ws['I22'] = data3etapa
-    ws['A54'] = conclusao
+    ws['A55'] = conclusao
     ws['E50'] = acao_eficaz
     ws['A53'] = acao_eficaz_2
     ws['G9'] = item_norma
