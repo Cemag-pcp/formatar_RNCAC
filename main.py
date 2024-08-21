@@ -51,7 +51,7 @@ if file_upload is not None:
     else:
         data = data.strftime('%d/%m/%Y')
 
-    descricao = excelOriginal['PAINEL DE ACOMPANHAMENTO RNC'][4] #A11
+    descricao = excelOriginal['RNC - Painel de Acompanhamento'][4] #A11
     
     try:
         arquivos = excelOriginal['Unnamed: 14'][4]
