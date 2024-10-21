@@ -20,6 +20,7 @@ def is_invalid_date(date):
     sentinel_date = datetime(1900, 1, 1)
     return date == sentinel_date
 
+
 if file_upload is not None:
     # Salva o arquivo temporário
     temp_file = 'arquivo_formatado.xlsx'
@@ -89,7 +90,7 @@ if file_upload is not None:
 
     conclusao = excelOriginal['Unnamed: 28'][4]
     item_norma = excelOriginal['Unnamed: 12'][4]
-    avaliacao = excelOriginal['Unnamed: 32'][4]
+    avaliacao = excelOriginal['Unnamed: 26'][4]
     status2 = excelOriginal['Unnamed: 17'][4]
 
     data2 = excelOriginal['Unnamed: 18'][4]
