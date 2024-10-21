@@ -38,12 +38,12 @@ if file_upload is not None:
     # item = excelOriginal['RNCAC'][4] 
     # log_criacao = excelOriginal['Unnamed: 3'][4]
     # origem = excelOriginal['Unnamed: 4'][4]
-    setor = excelOriginal['Unnamed: 10'][4] #D7
+    setor = excelOriginal['Unnamed: 9'][4] #D7
     # conjunto = excelOriginal['Unnamed: 6'][4] 
-    responsavel = excelOriginal['Unnamed: 11'][4] #G8 G15
+    responsavel = excelOriginal['Unnamed: 10'][4] #G8 G15
     # gravidade = excelOriginal['Unnamed: 10'][4]
     # prioridade = excelOriginal['Unnamed: 11'][4]
-    status = excelOriginal['Unnamed: 8'][4] 
+    status = excelOriginal['Unnamed: 30'][4] 
     # ultima_atualizacao = excelOriginal['Unnamed: 16'][4]
     
     data = excelOriginal['Unnamed: 6'][4]    
@@ -55,7 +55,7 @@ if file_upload is not None:
     descricao = excelOriginal['RNC - Painel de Acompanhamento'][4] #A11
     
     try:
-        arquivos = excelOriginal['Unnamed: 14'][4]
+        arquivos = excelOriginal['Unnamed: 13'][4]
     except:
         arquivos = ''
 
@@ -63,50 +63,50 @@ if file_upload is not None:
     # foto = arquivos_split[0].replace(",","")
 
     # conclusao = excelOriginal['Unnamed: 14'][4]
-    acao_contencao = excelOriginal['Unnamed: 15'][4] #A17
+    acao_contencao = excelOriginal['Unnamed: 16'][4] #A17
 
-    excelOriginal['Unnamed: 19'] = excelOriginal['Unnamed: 19'].fillna('N/A')
-    excelOriginal['Unnamed: 20'] = excelOriginal['Unnamed: 20'].fillna('N/A')
-    excelOriginal['Unnamed: 21'] = excelOriginal['Unnamed: 21'].fillna('N/A')
-    excelOriginal['Unnamed: 22'] = excelOriginal['Unnamed: 22'].fillna('N/A')
-    excelOriginal['Unnamed: 23'] = excelOriginal['Unnamed: 23'].fillna('N/A')
-    excelOriginal['Unnamed: 24'] = excelOriginal['Unnamed: 24'].fillna('N/A')
+    excelOriginal['Unnamed: 19'] = excelOriginal['Unnamed: 18'].fillna('N/A')
+    excelOriginal['Unnamed: 20'] = excelOriginal['Unnamed: 19'].fillna('N/A')
+    excelOriginal['Unnamed: 21'] = excelOriginal['Unnamed: 20'].fillna('N/A')
+    excelOriginal['Unnamed: 22'] = excelOriginal['Unnamed: 21'].fillna('N/A')
+    excelOriginal['Unnamed: 23'] = excelOriginal['Unnamed: 22'].fillna('N/A')
+    excelOriginal['Unnamed: 24'] = excelOriginal['Unnamed: 23'].fillna('N/A')
 
-    maquina = excelOriginal['Unnamed: 19'][4]
-    mao_de_obra = excelOriginal['Unnamed: 20'][4] #B25
-    materia_prima = excelOriginal['Unnamed: 21'][4] #B26
-    medicao = excelOriginal['Unnamed: 22'][4] #B27
-    metodo = excelOriginal['Unnamed: 23'][4] #B28
-    meio_ambiente = excelOriginal['Unnamed: 24'][4] #B29
+    maquina = excelOriginal['Unnamed: 18'][4]
+    mao_de_obra = excelOriginal['Unnamed: 19'][4] #B25
+    materia_prima = excelOriginal['Unnamed: 20'][4] #B26
+    medicao = excelOriginal['Unnamed: 21'][4] #B27
+    metodo = excelOriginal['Unnamed: 22'][4] #B28
+    meio_ambiente = excelOriginal['Unnamed: 23'][4] #B29
     # encerradoEm = excelOriginal['Unnamed: 25'][4].strftime("%d/%m/%Y")
-    responsavelUltimo = excelOriginal['Unnamed: 30'][4]
-    participantes = excelOriginal['Unnamed: 26'][4] #C30
+    responsavelUltimo = excelOriginal['Unnamed: 29'][4]
+    participantes = excelOriginal['Unnamed: 25'][4] #C30
 
-    encerradoEm = excelOriginal['Unnamed: 29'][4]
+    encerradoEm = excelOriginal['Unnamed: 28'][4]
     if not isinstance(encerradoEm, datetime):
         encerradoEm = ''
     else:
         encerradoEm = encerradoEm.strftime('%d/%m/%Y')  
 
-    conclusao = excelOriginal['Unnamed: 28'][4]
-    item_norma = excelOriginal['Unnamed: 12'][4]
+    conclusao = excelOriginal['Unnamed: 27'][4]
+    item_norma = excelOriginal['Unnamed: 11'][4]
     avaliacao = excelOriginal['Unnamed: 26'][4]
-    status2 = excelOriginal['Unnamed: 17'][4]
+    status2 = excelOriginal['Unnamed: 16'][4]
 
-    data2 = excelOriginal['Unnamed: 18'][4]
+    data2 = excelOriginal['Unnamed: 17'][4]
     if not isinstance(data2, datetime):
         data2 = ''
     else:
         data2 = data2.strftime('%d/%m/%Y')  
 
-    data3etapa = excelOriginal['Unnamed: 25'][4]
+    data3etapa = excelOriginal['Unnamed: 24'][4]
     if not isinstance(data3etapa, datetime):
         data3etapa = ''
     else:
         data3etapa = data3etapa.strftime('%d/%m/%Y')  
 
-    responsavel2 = excelOriginal['Unnamed: 16'][4]
-    conjuntoAtividade = excelOriginal['Unnamed: 13'].fillna('N/A')[4]
+    responsavel2 = excelOriginal['Unnamed: 15'][4]
+    conjuntoAtividade = excelOriginal['Unnamed: 12'].fillna('N/A')[4]
 
     if not np.isnan(avaliacao):
         acao_eficaz = avaliacao * '★'
