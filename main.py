@@ -23,7 +23,7 @@ def is_invalid_date(date):
 if file_upload is not None:
     # Salva o arquivo temporário
     temp_file = 'arquivo_formatado.xlsx'
-    # temp_file = r"PAINEL_DE_ACOMPANHAMENTO_RNC_1722521575.xlsx"
+    # temp_file = r"RNC_-_Painel_de_Acompanhamento_1729531707.xlsx"
 
     with open(temp_file, 'wb') as file:
         file.write(file_upload.getvalue())
@@ -89,7 +89,7 @@ if file_upload is not None:
 
     conclusao = excelOriginal['Unnamed: 28'][4]
     item_norma = excelOriginal['Unnamed: 12'][4]
-    avaliacao = excelOriginal['Unnamed: 27'][4]
+    avaliacao = excelOriginal['Unnamed: 32'][4]
     status2 = excelOriginal['Unnamed: 17'][4]
 
     data2 = excelOriginal['Unnamed: 18'][4]
