@@ -65,12 +65,13 @@ if file_upload is not None:
     # conclusao = excelOriginal['Unnamed: 14'][4]
     acao_contencao = excelOriginal['Unnamed: 16'][4] #A17
 
-    excelOriginal['Unnamed: 19'] = excelOriginal['Unnamed: 18'].fillna('N/A')
-    excelOriginal['Unnamed: 20'] = excelOriginal['Unnamed: 19'].fillna('N/A')
-    excelOriginal['Unnamed: 21'] = excelOriginal['Unnamed: 20'].fillna('N/A')
-    excelOriginal['Unnamed: 22'] = excelOriginal['Unnamed: 21'].fillna('N/A')
-    excelOriginal['Unnamed: 23'] = excelOriginal['Unnamed: 22'].fillna('N/A')
-    excelOriginal['Unnamed: 24'] = excelOriginal['Unnamed: 23'].fillna('N/A')
+    excelOriginal['Unnamed: 18'] = excelOriginal['Unnamed: 18'].fillna('N/A')
+    excelOriginal['Unnamed: 19'] = excelOriginal['Unnamed: 19'].fillna('N/A')
+    excelOriginal['Unnamed: 20'] = excelOriginal['Unnamed: 20'].fillna('N/A')
+    excelOriginal['Unnamed: 21'] = excelOriginal['Unnamed: 21'].fillna('N/A')
+    excelOriginal['Unnamed: 22'] = excelOriginal['Unnamed: 22'].fillna('N/A')
+    excelOriginal['Unnamed: 23'] = excelOriginal['Unnamed: 23'].fillna('N/A')
+    excelOriginal['Unnamed: 24'] = excelOriginal['Unnamed: 24'].fillna('N/A')
 
     maquina = excelOriginal['Unnamed: 18'][4]
     mao_de_obra = excelOriginal['Unnamed: 19'][4] #B25
