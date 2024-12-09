@@ -59,6 +59,11 @@ if file_upload is not None:
     except:
         arquivos = ''
 
+    try:
+        acao_imediata = excelOriginal['Unnamed: 14'][4]
+    except:
+        acao_imediata = ''
+
     # arquivos_split = arquivos.split()
     # foto = arquivos_split[0].replace(",","")
 
@@ -129,7 +134,7 @@ if file_upload is not None:
     ws['G8'] = responsavel
     ws['G15'] = responsavel2
     ws['A12'] = descricao
-    ws['A17'] = acao_contencao
+    ws['A17'] = acao_imediata
     ws['B24'] = maquina
     ws['B25'] = mao_de_obra
     ws['B26'] = materia_prima
