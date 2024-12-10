@@ -126,7 +126,7 @@ if file_upload is not None:
     excelOriginal_cortado = excelOriginal_cortado.set_axis(excelOriginal_cortado.iloc[0], axis='columns')
     excelOriginal_cortado = excelOriginal_cortado[1:].reset_index(drop=True)
 
-    wb = load_workbook('modelo_final_v2.xlsx')
+    wb = load_workbook('modelo_final_v3.xlsx')
     ws = wb.active
     
     ws['B8'] = id
@@ -146,15 +146,15 @@ if file_upload is not None:
     ws['I8'] = data
     ws['I14'] = data2
     ws['I22'] = data3etapa
-    ws['A55'] = conclusao
-    ws['E50'] = acao_eficaz
-    ws['A53'] = acao_eficaz_2
+    ws['A58'] = conclusao
+    ws['E53'] = acao_eficaz
+    ws['A56'] = acao_eficaz_2
     ws['G9'] = item_norma
     ws['G14'] = status2
     ws['G11'] = conjuntoAtividade
     ws['G22'] = responsavel2
-    ws['G50'] = encerradoEm
-    ws['G51'] = responsavelUltimo
+    ws['G53'] = encerradoEm
+    ws['G54'] = responsavelUltimo
 
     # try:
     #     ws['i22'] = dataPenultima
